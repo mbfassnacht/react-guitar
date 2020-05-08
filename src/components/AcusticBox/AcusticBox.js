@@ -7,14 +7,7 @@ export default class AcusticBox extends Component {
     };
 
     componentDidMount() {
-        window.AudioContext = window.AudioContext || window.webkitAudioContext;
-        const ctx = new AudioContext();
-        this.oscillator = ctx.createOscillator();
-
-        this.oscillator.connect(ctx.destination);
-        this.oscillator.frequency.value = null;
-        this.oscillator.start();
-
+        this.ctx = null;
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
@@ -23,6 +16,15 @@ export default class AcusticBox extends Component {
                 this.oscillator.frequency.value = null;
                 this.setState({ sounding: false });
             } else {
+                if (this.ctx === null) {
+                    window.AudioContext = window.AudioContext || window.webkitAudioContext;
+                    this.ctx = new AudioContext();
+                    this.oscillator = this.ctx.createOscillator();
+                    this.oscillator.connect(this.ctx.destination);
+                    this.oscillator.frequency.value = null;
+                    this.oscillator.start();
+                }
+
                 let real = new Float32Array(2);
                 let imag = new Float32Array(2);
                 let ac = new AudioContext();
