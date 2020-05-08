@@ -41,6 +41,21 @@ function App() {
     return (
         <div className="app">
             <h1>Guitar App</h1>
+            <a
+                style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                }}
+                href="https://github.com/mbfassnacht/react-guitar">
+                <img
+                    width="149"
+                    height="149"
+                    src="https://github.blog/wp-content/uploads/2008/12/forkme_left_white_ffffff.png?resize=149%2C149"
+                    className="attachment-full size-full"
+                    alt="Fork me on GitHub"
+                    data-recalc-dims="1" />
+                </a>
             <Guitar frets={frets} chords={chords}/>
         </div>
     );
