@@ -16,7 +16,7 @@ export default class Fret extends Component {
         const dots = [];
 
         for (let i = 0; i < this.props.dots; i++) {
-            dots.push(<div className="dot" />);
+            dots.push(<div key={`${i}-dot`} className="dot" />);
         }
 
         return(

@@ -11,19 +11,6 @@ export default class AcusticBox extends Component {
         const ctx = new AudioContext();
         this.oscillator = ctx.createOscillator();
 
-        let real = new Float32Array(2);
-        let imag = new Float32Array(2);
-        let ac = new AudioContext();
-
-        real[0] = 0;
-        imag[0] = 0;
-        real[1] = 10;
-        imag[1] = 10;
-
-        const wave = ac.createPeriodicWave(real, imag, {disableNormalization: true});
-
-        this.oscillator.setPeriodicWave(wave);
-
         this.oscillator.connect(ctx.destination);
         this.oscillator.frequency.value = null;
         this.oscillator.start();
@@ -36,6 +23,23 @@ export default class AcusticBox extends Component {
                 this.oscillator.frequency.value = null;
                 this.setState({ sounding: false });
             } else {
+                let real = new Float32Array(2);
+                let imag = new Float32Array(2);
+                let ac = new AudioContext();
+                const hz = this.props.frequency;
+                real[0] = hz;
+                imag[0] = hz/8;
+                real[1] = hz/2;
+                imag[1] = hz/4;
+                real[2] = hz/4;
+                imag[2] = hz/2;
+                real[3] = hz/8;
+                imag[3] = hz/1;
+
+                const wave = ac.createPeriodicWave(real, imag, {disableNormalization: true});
+
+                this.oscillator.setPeriodicWave(wave);
+
                 this.oscillator.frequency.value = this.props.frequency;
                 this.setState({ sounding: true });
             }

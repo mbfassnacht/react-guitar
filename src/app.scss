@@ -9,4 +9,17 @@
 		margin: 0;
 		font-size: 40px;
 	}
+
+	form {
+		position: fixed;
+		padding: 20px;
+		bottom: 0;
+		font-size: 20px;
+
+		label {
+			margin: 20px;
+			font-family: sans-serif;
+			width: 200px;
+		}
+	}
 }

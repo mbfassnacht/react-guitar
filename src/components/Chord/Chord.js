@@ -18,7 +18,6 @@ export default class Chord extends Component {
         const percentage = (100 * positionPressed) / guitarLength;
         const maxFrequency = this.props.frequency * 2;
         const frequencyGenerated = this.props.frequency + (percentage * maxFrequency / 100);
-        console.log(frequencyGenerated);
         this.props.onChordPressed(frequencyGenerated);
     };
 
