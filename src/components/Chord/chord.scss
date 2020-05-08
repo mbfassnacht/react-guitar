@@ -1,0 +1,16 @@
+.b-chord {
+    cursor: pointer;
+    width: 100%;
+    height: 10px;
+
+
+    .effective-chord.gold {
+        background-color: gold;
+        background-image: linear-gradient(90deg, transparent 50%, rgba(255,255,255,.5) 50%);
+        background-size: 3px 3px;
+    }
+
+    .effective-chord.silver {
+        background-color: silver;
+    }
+}
