@@ -40,7 +40,8 @@ function App() {
 
     return (
         <div className="app">
-          <Guitar frets={frets} chords={chords}/>
+            <h1>Guitar App</h1>
+            <Guitar frets={frets} chords={chords}/>
         </div>
     );
 }
