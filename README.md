@@ -1,7 +1,10 @@
 # Guitar with AudioContext + React 
 
 ## Motivation
-Play a bit with the AudioContext and use some math to define the wave of the guitar.
+Play a bit with the AudioContext API and use some Math to define the wave of the guitar.
+
+## DEMO
+[Go to Demo!](https://maximobelen.com/react-guitar/) 
 
 ### Defining the wave. (inspirated on https://www.geogebra.org/m/vzFdVMKy)
 
@@ -33,6 +36,12 @@ const wave = ac.createPeriodicWave(real, imag, {disableNormalization: true});
 this.oscillator.setPeriodicWave(wave);
 
 ```
+
+### How to use it
+Press different chords and create your notes.
+
+### TO-DO use each fret to determine the frequency pressed. 
+
 
 ## Available Scripts
 
