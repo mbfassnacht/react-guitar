@@ -1,15 +1,10 @@
 import React, { Component } from 'react';
 import Chord from '../Chord/Chord';
-import AcusticBox from '../AcusticBox/AcusticBox';
 import PropTypes from 'prop-types';
 import './guitar.scss';
 import Fret from '../Fret/Fret';
 
 export default class Guitar extends Component {
-
-    state = {
-        currentFrequency: null,
-    };
 
     static propTypes = {
         frets: PropTypes.number.isRequired,
@@ -18,14 +13,6 @@ export default class Guitar extends Component {
             color: PropTypes.string.isRequired,
             frequency: PropTypes.number.isRequired,
         })),
-    };
-
-    onChordPressed = (frequency) => {
-        this.setState({ currentFrequency: frequency })
-    };
-
-    onChordReleased = (e) => {
-        this.setState({ currentFrequency: null })
     };
 
     renderFrets() {
@@ -57,7 +44,6 @@ export default class Guitar extends Component {
     render() {
         return (
             <div className='b-guitar'>
-                <AcusticBox frequency={this.state.currentFrequency} />
                 {this.renderFrets()}
                 <div className="chords">
                     {this.props.chords.map((chord, index) => <Chord color={chord.color} size={10/(index + 1)} onChordReleased={this.onChordReleased} onChordPressed={this.onChordPressed} key={chord.frequency} frequency={chord.frequency} tone={chord.tone} />)}
