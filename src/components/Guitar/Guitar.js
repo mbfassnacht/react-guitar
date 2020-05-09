@@ -47,7 +47,6 @@ export default class Guitar extends Component {
                 {this.renderFrets()}
                 <div className="chords">
                     {this.props.chords.map((chord, index) => <Chord color={chord.color} size={10/(index + 1)} onChordReleased={this.onChordReleased} onChordPressed={this.onChordPressed} key={chord.frequency} frequency={chord.frequency} tone={chord.tone} />)}
-                    )
                 </div>
             </div>
         );
